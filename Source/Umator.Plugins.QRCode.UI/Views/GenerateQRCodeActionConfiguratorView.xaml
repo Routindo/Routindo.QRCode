@@ -1,0 +1,221 @@
+﻿<UserControl x:Class="Umator.Plugins.QRCode.UI.Views.GenerateQRCodeActionConfiguratorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Umator.Plugins.QRCode.UI.Views"
+             xmlns:viewModel="clr-namespace:Umator.Plugins.QRCode.UI.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" d:Background="white">
+    <UserControl.DataContext>
+        <viewModel:GenerateQRCodeActionConfiguratorViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="ErrorControlTemplate">
+
+                <Grid>
+                    <Ellipse Fill="Red" Opacity="0.8" Width="15" Height="15"
+                             HorizontalAlignment="Right" VerticalAlignment="Center" 
+                             Margin="0 5 15 5"
+                             ToolTip="{Binding Path=/ErrorContent}" >
+                        <Ellipse.Resources>
+                            <Style TargetType="ToolTip">
+                                <Setter Property="Foreground" Value="DarkRed"/>
+                                <Setter Property="Background" Value="LightPink"/>
+                                <Setter Property="BorderBrush" Value="DarkRed"/>
+                            </Style>
+                        </Ellipse.Resources>
+                    </Ellipse>
+                    <AdornedElementPlaceholder x:Name="placeholder" ToolTip="{Binding Path=/ErrorContent}">
+                        <Border BorderBrush="Red" BorderThickness="1" />
+                    </AdornedElementPlaceholder>
+                </Grid>
+
+            </ControlTemplate>
+
+            <!--<converters:InvertBooleanConverter x:Key="InvertBooleanConverter"/>-->
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="QR Code Generator" FontSize="18" FontWeight="Bold" />
+        <StackPanel Grid.Row="1" Grid.IsSharedSizeScope="True" Margin="10">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="5 0" />
+                    <Setter Property="Padding" Value="5" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="MinWidth" Value="95" />
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="VerticalAlignment"  Value="Center"/>
+                </Style>
+                <Style TargetType="RadioButton">
+                    <Setter Property="VerticalAlignment"  Value="Center"/>
+                    <Setter Property="Margin"  Value="5 0"/>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="VerticalAlignment"  Value="Center"/>
+                    <Setter Property="VerticalContentAlignment"  Value="Center"/>
+                    <Setter Property="Background"  Value="Transparent"/>
+                    <Setter Property="Margin"  Value="5 0"/>
+                    <Setter Property="Width"  Value="240"/>
+                    <Setter Property="Height"  Value="30"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="1 5" />
+                </Style>
+                <Style TargetType="PasswordBox">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="1 5" />
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="ContentStringFormat" Value="{}{0}:" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="Margin" Value="0 0 5 0" />
+                </Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Margin" Value="0 10" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <!--<Setter Property="Margin" Value="5" />-->
+                </Style>
+            </StackPanel.Resources>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"   SharedSizeGroup="Label"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Image Format" 
+                       
+                />
+                <ComboBox Grid.Column="1" ItemsSource="{Binding Path=ImageFormats}"
+                          SelectedItem="{Binding Path=ImageFormat, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                Validation.ErrorTemplate="{StaticResource ErrorControlTemplate}"
+                          />
+                <!--<Button Grid.Column="2" Content="Reset" />-->
+                <TextBlock
+                    Grid.Column="3" Text="The image format where to save the generated QR Code."
+                    FontStyle="Italic"
+                />
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"   SharedSizeGroup="Label"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="ECCL" 
+                       
+                />
+                <ComboBox Grid.Column="1" ItemsSource="{Binding Path=EccLevels}"
+                          SelectedItem="{Binding Path=ErrorCorrectionLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                          Validation.ErrorTemplate="{StaticResource ErrorControlTemplate}"
+                />
+                <!--<Button Grid.Column="2" Content="Reset" />-->
+                <TextBlock
+                    Grid.Column="3" Text="The error correction level."
+                    FontStyle="Italic"
+                />
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Output file" />
+                <TextBox Grid.Row="0" Grid.Column="1" Validation.ErrorTemplate="{StaticResource ErrorControlTemplate}"
+                         Text="{Binding Path=OutputFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                         d:Text="C:\Users\User\Documents\qrcode.png" />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="1"
+                    FontStyle="Italic"
+                    Text="The path where to the image where to save the generated QR Code." />
+                <Button Grid.Row="0" Grid.Column="2" Content="Select" Command="{Binding Path=SelectOutputPathCommand}" />
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"   SharedSizeGroup="Label"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Override File" 
+                       
+                />
+                <CheckBox Grid.Column="1" 
+                          IsChecked="{Binding Path=EraseExistingFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          d:IsChecked="true" 
+                >
+                    <TextBlock
+                        Text="Override existing output file if exists another file with the same name"
+                        FontStyle="Italic"
+                    />
+                </CheckBox>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"   SharedSizeGroup="Label"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Force UTF8" 
+                       
+                />
+                <CheckBox Grid.Column="1" 
+                          IsChecked="{Binding Path=ForceUtf8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          d:IsChecked="true" 
+                >
+                    <TextBlock
+                        Text="Force using UTF8 on the date to encode."
+                        FontStyle="Italic"
+                    />
+                </CheckBox>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"   SharedSizeGroup="Label"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Pixel Per Module" 
+                       
+                />
+                <ComboBox Grid.Column="1" ItemsSource="{Binding Path=PixelPerModuleList}"
+                          SelectedItem="{Binding Path=PixelPerModule, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True}"
+                          Validation.ErrorTemplate="{StaticResource ErrorControlTemplate}"
+                />
+                <!--<Button Grid.Column="2" Content="Reset" />-->
+                <TextBlock
+                    Grid.Column="3" Text="The count of pixels to occupy by single QR Code Module"
+                    FontStyle="Italic"
+                />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <IsPackagable>false</IsPackagable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.6">
+      <IncludeAssets>all</IncludeAssets> 
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Umator.Contract">
+      <HintPath>..\..\Libs\Shared\Umator.Contract.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
