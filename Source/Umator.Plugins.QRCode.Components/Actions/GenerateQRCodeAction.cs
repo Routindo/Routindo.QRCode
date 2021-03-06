@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using NLog;
 using QRCoder;
 using Umator.Contract;
+using Umator.Contract.Services;
 
 namespace Umator.Plugins.QRCode.Components.Actions
 {
@@ -16,7 +16,6 @@ namespace Umator.Plugins.QRCode.Components.Actions
     public class GenerateQRCodeAction : IAction
     {
         public const string ComponentUniqueId = "88D396B4-5F07-4FDE-A097-B3E352956B5E";
-        private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         ///     Gets or sets the error correct level.
@@ -73,6 +72,7 @@ namespace Umator.Plugins.QRCode.Components.Actions
         public string OutputFilePath { get; set; }
 
         public string Id { get; set; }
+        public ILoggingService LoggingService { get; set; }
 
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Umator.Plugins.QRCode.Components.Actions
             }
             catch (Exception exception)
             {
-                _logger.Error(exception);
+                LoggingService.Error(exception);
                 return ActionResult.Failed().WithException(exception);
             }
         }
