@@ -7,11 +7,12 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 using QRCoder;
-using Umator.Contract;
-using Umator.Contract.UI;
-using Umator.Plugins.QRCode.Components.Actions;
+using Routindo.Contract;
+using Routindo.Contract.Arguments;
+using Routindo.Contract.UI;
+using Routindo.Plugins.QRCode.Components.Actions;
 
-namespace Umator.Plugins.QRCode.UI.ViewModel
+namespace Routindo.Plugins.QRCode.UI.ViewModel
 {
     public class GenerateQRCodeActionConfiguratorViewModel: PluginConfiguratorViewModelBase
     {

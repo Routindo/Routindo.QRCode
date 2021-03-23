@@ -1,4 +1,4 @@
-﻿namespace Umator.Plugins.QRCode.Components.Actions
+﻿namespace Routindo.Plugins.QRCode.Components.Actions
 {
     public static class GenerateQRCodeActionInstanceArgs
     {

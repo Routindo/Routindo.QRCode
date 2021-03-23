@@ -6,23 +6,23 @@ Param(
     $Build = "true",
     $Publish = "true",
     $Pack = "true",
-	$DeploymentPath = "..\_DEPLOYMENT",
-    $PluginsBuilderPath = "..\_DEPLOYMENT\PluginsBuilder\Umator.PluginsBuilder.exe"
+	$DeploymentPath = "..\..\..\_DEPLOYMENT",
+    $PluginsBuilderPath = "..\..\..\_DEPLOYMENT\PluginsBuilder\Routindo.PluginsBuilder.ConsoleApp.exe"
 );
 
 $clean_publish = 1;
 
 $separator = "\";
-$SourceFolder = "." + $separator + "Source";
+$SourceFolder = ".." + $separator + "Source";
 $configuration = "Release";
 $runtime = "win-x64";
 
 
 clear
 $projects = @{}
-$projects.Add(1,'Umator.Plugins.' +  $PluginName)
-$projects.Add(2,'Umator.Plugins.' +  $PluginName + '.UI')
-$projects.Add(3,'Umator.Plugins.' +  $PluginName + '.Components')
+$projects.Add(1,'Routindo.Plugins.' +  $PluginName)
+$projects.Add(2,'Routindo.Plugins.' +  $PluginName + '.UI')
+$projects.Add(3,'Routindo.Plugins.' +  $PluginName + '.Components')
 
 $output = $SourceFolder + $separator + $projects[1] + $separator + "bin" + $separator + $configuration + $separator + "Publish" + $separator + $runtime;
 

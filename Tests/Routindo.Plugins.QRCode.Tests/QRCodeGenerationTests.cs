@@ -1,15 +1,16 @@
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QRCoder;
-using Umator.Contract;
-using Umator.Plugins.QRCode.Components.Actions;
+using Routindo.Contract;
+using Routindo.Contract.Arguments;
+using Routindo.Plugins.QRCode.Components.Actions;
 
-namespace Umator.Plugins.QRCode.Tests
+namespace Routindo.Plugins.QRCode.Tests
 {
     [TestClass]
     public class QRCodeGenerationTests
     {
-        private readonly string qrCodeContent = "Umator is able to QR CODE";
+        private readonly string qrCodeContent = "Routindo is able to QR CODE";
 
         [TestMethod]
         public void GenerateQRCodeSuccessfulTest()
@@ -83,7 +84,7 @@ namespace Umator.Plugins.QRCode.Tests
         [TestMethod]
         public void GenerateQRCodeFailsOnWrongOrEmptyImageFormat()
         {
-            string imageFormat = "umator";
+            string imageFormat = "routindo";
             string eccl = QRCodeGenerator.ECCLevel.H.ToString("G");
             string output = Path.Combine(Path.GetTempPath(), "output.png");
             const bool eraseExistingFile = true;

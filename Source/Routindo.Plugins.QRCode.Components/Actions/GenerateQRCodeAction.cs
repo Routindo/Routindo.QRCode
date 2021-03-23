@@ -5,10 +5,13 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using QRCoder;
-using Umator.Contract;
-using Umator.Contract.Services;
+using Routindo.Contract;
+using Routindo.Contract.Actions;
+using Routindo.Contract.Arguments;
+using Routindo.Contract.Attributes;
+using Routindo.Contract.Services;
 
-namespace Umator.Plugins.QRCode.Components.Actions
+namespace Routindo.Plugins.QRCode.Components.Actions
 {
     [PluginItemInfo(ComponentUniqueId, "Generate QRCode",
          "Generate a QR Code from a given plaintext to output image"),

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Umator.Plugins.QRCode.UI.Views
+namespace Routindo.Plugins.QRCode.UI.Views
 {
     /// <summary>
     /// Interaction logic for GenerateQRCodeActionConfiguratorView.xaml

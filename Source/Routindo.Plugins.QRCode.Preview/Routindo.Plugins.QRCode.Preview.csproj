@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows7.0</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Routindo.Plugins.QRCode.UI\Routindo.Plugins.QRCode.UI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Routindo.Contract">
+	    <HintPath>..\..\Libs\Shared\Routindo.Contract.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Routindo.Contract.UI">
+	    <HintPath>..\..\Libs\Shared\Routindo.Contract.UI.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+</Project>

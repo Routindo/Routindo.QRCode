@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
     <IsPackagable>false</IsPackagable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Umator.Contract">
-      <HintPath>..\..\Libs\Shared\Umator.Contract.dll</HintPath>
+    <Reference Include="Routindo.Contract">
+      <HintPath>..\..\Libs\Shared\Routindo.Contract.dll</HintPath>
 	    <Private>false</Private>
     </Reference>
   </ItemGroup>

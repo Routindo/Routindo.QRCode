@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{947226
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8360E9CF-53CD-45B6-9E19-6C35B30DBCAA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umator.Plugins.QRCode.Components", "Source\Umator.Plugins.QRCode.Components\Umator.Plugins.QRCode.Components.csproj", "{2597F00F-61CA-4A55-8316-A6DEF9128936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routindo.Plugins.QRCode.Components", "Source\Routindo.Plugins.QRCode.Components\Routindo.Plugins.QRCode.Components.csproj", "{2597F00F-61CA-4A55-8316-A6DEF9128936}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ref", "Ref", "{515FC101-E8DB-45CB-B5C6-053C0B545D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routindo.Plugins.QRCode.UI", "Source\Routindo.Plugins.QRCode.UI\Routindo.Plugins.QRCode.UI.csproj", "{FB0880B2-EFE8-45D9-959D-49C1AB992CF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umator.Plugins.QRCode.UI", "Source\Umator.Plugins.QRCode.UI\Umator.Plugins.QRCode.UI.csproj", "{FB0880B2-EFE8-45D9-959D-49C1AB992CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routindo.Plugins.QRCode", "Source\Routindo.Plugins.QRCode\Routindo.Plugins.QRCode.csproj", "{CE473417-E2F1-48E5-BA19-3A3BC84EF19E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umator.Plugins.QRCode", "Source\Umator.Plugins.QRCode\Umator.Plugins.QRCode.csproj", "{CE473417-E2F1-48E5-BA19-3A3BC84EF19E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routindo.Plugins.QRCode.Tests", "Tests\Routindo.Plugins.QRCode.Tests\Routindo.Plugins.QRCode.Tests.csproj", "{55A6B3EC-9DD1-4180-BAA9-94F5388FC069}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umator.Plugins.QRCode.Tests", "Tests\Umator.Plugins.QRCode.Tests\Umator.Plugins.QRCode.Tests.csproj", "{55A6B3EC-9DD1-4180-BAA9-94F5388FC069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routindo.Plugins.QRCode.Preview", "Source\Routindo.Plugins.QRCode.Preview\Routindo.Plugins.QRCode.Preview.csproj", "{9965D198-9125-4C45-ADBD-EFBB7E23D42A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +81,18 @@ Global
 		{55A6B3EC-9DD1-4180-BAA9-94F5388FC069}.Release|x64.Build.0 = Release|Any CPU
 		{55A6B3EC-9DD1-4180-BAA9-94F5388FC069}.Release|x86.ActiveCfg = Release|Any CPU
 		{55A6B3EC-9DD1-4180-BAA9-94F5388FC069}.Release|x86.Build.0 = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|x64.Build.0 = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|x64.ActiveCfg = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|x64.Build.0 = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +102,7 @@ Global
 		{FB0880B2-EFE8-45D9-959D-49C1AB992CF5} = {94722651-34D1-432C-B1DF-4908D318D705}
 		{CE473417-E2F1-48E5-BA19-3A3BC84EF19E} = {94722651-34D1-432C-B1DF-4908D318D705}
 		{55A6B3EC-9DD1-4180-BAA9-94F5388FC069} = {8360E9CF-53CD-45B6-9E19-6C35B30DBCAA}
+		{9965D198-9125-4C45-ADBD-EFBB7E23D42A} = {94722651-34D1-432C-B1DF-4908D318D705}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB624603-D4ED-445E-9007-2DC694F2DFE7}
