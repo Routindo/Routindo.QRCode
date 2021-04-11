@@ -6,5 +6,5 @@ using Routindo.Contract.Attributes;
     "QRCode Generator",
     "Plugin to generate QR Code automatically from a given data string to a given output image file",
     Author = "Routindo", AuthorUri = "https://routindo.com/qr-code-generator/", DocumentationUri = "https://routindo.com/docs/qrcode-generator/",
-    SupportUri = "https://routindo.com/support/forum/?view=forum&id=9"
+    SupportUri = "https://routindo.com/support/forum/?view=forum&id=8"
 )]
