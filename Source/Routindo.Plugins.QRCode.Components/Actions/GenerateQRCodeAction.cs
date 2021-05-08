@@ -13,6 +13,7 @@ namespace Routindo.Plugins.QRCode.Components.Actions
     [PluginItemInfo(ComponentUniqueId, nameof(GenerateQRCodeAction),
          "Generate a QR Code from a given plaintext to output image", Category = "QRCode", FriendlyName = "Generate QRCode"),
      ExecutionArgumentsClass(typeof(GenerateQRCodeActionExecutionArgs))]
+    [ResultArgumentsClass(typeof(GenerateQRCodeActionResultsArgs))]
     public class GenerateQRCodeAction : IAction
     {
         public const string ComponentUniqueId = "88D396B4-5F07-4FDE-A097-B3E352956B5E";
@@ -97,9 +98,10 @@ namespace Routindo.Plugins.QRCode.Components.Actions
         /// </exception>
         public ActionResult Execute(ArgumentCollection arguments)
         {
+            var plainText = string.Empty;
+            var outputFilePath = OutputFilePath;
             try
             {
-                var plainText = string.Empty;
                 if (arguments.HasArgument(GenerateQRCodeActionExecutionArgs.PlainText))
                     plainText = arguments.GetValue<string>(GenerateQRCodeActionExecutionArgs.PlainText);
 
@@ -136,8 +138,6 @@ namespace Routindo.Plugins.QRCode.Components.Actions
                     throw new Exception(
                         $"Mandatory instance argument is not set : {GenerateQRCodeActionInstanceArgs.ImageFormat}");
 
-                var outputFilePath = OutputFilePath;
-
                 if (string.IsNullOrWhiteSpace(outputFilePath))
                     if (arguments.HasArgument(GenerateQRCodeActionExecutionArgs.OutputFilePath))
                         outputFilePath = arguments.GetValue<string>(GenerateQRCodeActionExecutionArgs.OutputFilePath);
@@ -168,12 +168,18 @@ namespace Routindo.Plugins.QRCode.Components.Actions
                 File.WriteAllBytes(outputFilePath, qrCodeBytes);
                 // qrCodeImage.Save(outputFilePath, imageFormat);
 
-                return ActionResult.Succeeded();
+                return ActionResult.Succeeded().WithAdditionInformation(ArgumentCollection.New()
+                    .WithArgument(GenerateQRCodeActionResultsArgs.OutputFilePath, outputFilePath)
+                    .WithArgument(GenerateQRCodeActionResultsArgs.QRCodeData, plainText)
+                );
             }
             catch (Exception exception)
             {
                 LoggingService.Error(exception);
-                return ActionResult.Failed().WithException(exception);
+                return ActionResult.Failed(exception).WithAdditionInformation(ArgumentCollection.New()
+                    .WithArgument(GenerateQRCodeActionResultsArgs.OutputFilePath, outputFilePath)
+                    .WithArgument(GenerateQRCodeActionResultsArgs.QRCodeData, plainText)
+                );
             }
         }
 
